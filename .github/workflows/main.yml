@@ -6,7 +6,6 @@ jobs:
   setup-vnc:
     runs-on: ubuntu-latest
 
-
     steps:
       # 1. 检出代码
       - name: Checkout repository
@@ -28,11 +27,11 @@ jobs:
           wget -q -O config.yaml "https://subconverters.com/sub?target=clash&url=${{ secrets.URL_PROXY }}&extend=1&insert=false&config=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini&emoji=true&list=false&xudp=false&udp=false&tfo=false&expand=true&scv=false&fdn=false&new_name=true"
           
           chmod +x clash
+          echo "检查点"
           ./clash -d .
           export HTTP_PROXY='http://127.0.0.1:7890'
           export HTTPS_PROXY='http://127.0.0.1:7890'
           export ALL_PROXY='socks5://127.0.0.1:7891'
-          curl https://api.live.bilibili.com/ip_service/v1/ip_service/get_ip_addr
           
 
 
